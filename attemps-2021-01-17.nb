@@ -992,19 +992,461 @@ Cell[BoxData[{
   "]"}]}], "Input"]
 }]],
 
+Cell["\<\
+Binomial - Poisson entropic inequalities and the M/M/\[Infinity] \
+queueBinomial - Poisson entropic inequalities and the M/M/\[Infinity] queue\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["$PreRead"], "Input"]
+}]],
+
+Cell[CellGroupData[{
+
 Cell[BoxData[
- RowBox[{"Binomial", "-",
+ RowBox[{"RandomReal", "[", "]"}]], "Input"]
+}]]
+}]]
+}]],
+
+Cell[CellGroupData[{
+
+Cell["Correlation", "Section"],
+
+Cell[CellGroupData[{
+
+Cell["Copula", "Subsection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Plot3D", "[",
   RowBox[{
-  "Poisson", " ", "entropic", " ", "inequalities", " ", "and", " ", "the",
-   " ",
-   RowBox[{
-    RowBox[{"M", "/", "M"}], "/", "\[Infinity]"}], " ", "queueBinomial"}],
-  "-",
+   RowBox[{"Min", "[",
+    RowBox[{"x", ",", "y"}], "]"}], ",",
+   RowBox[{"{",
+    RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",",
+   RowBox[{"{",
+    RowBox[{"y", ",", "0", ",", "1"}], "}"}]}], "]"}]], "Input"]
+}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
   RowBox[{
-  "Poisson", " ", "entropic", " ", "inequalities", " ", "and", " ", "the",
-   " ",
    RowBox[{
-    RowBox[{"M", "/", "M"}], "/", "\[Infinity]"}], " ", "queue"}]}]], "Input"]
+    RowBox[{"CorrelationFunction", "[",
+     RowBox[{"#", ",",
+      RowBox[{"{", "5", "}"}]}], "]"}], "&"}], "/@", "data"}], "//",
+  "ListLinePlot"}]], "Input"]
+}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"CorrelationFunction", "[",
+  RowBox[{
+   RowBox[{"BinomialProcess", "[", "p", "]"}], ",", "s", ",", "t"}],
+  "]"}], "\[IndentingNewLine]",
+ RowBox[{
+  RowBox[{"Flatten", "[",
+   RowBox[{
+    RowBox[{"Table", "[",
+     RowBox[{
+      RowBox[{"{",
+       RowBox[{"s", ",", "t", ",",
+        RowBox[{"Evaluate", "[",
+         RowBox[{"%", "/.",
+          RowBox[{"(",
+           RowBox[{"p", "\[Rule]",
+            RowBox[{"2", "/", "3"}]}], ")"}]}], "]"}]}], "}"}], ",",
+      RowBox[{"{",
+       RowBox[{"s", ",", "1", ",", "10"}], "}"}], ",",
+      RowBox[{"{",
+       RowBox[{"t", ",", "1", ",", "10"}], "}"}]}], "]"}], ",", "1"}], "]"}],
+  ";"}], "\[IndentingNewLine]",
+ RowBox[{"Show", "[",
+  RowBox[{
+   RowBox[{"Plot3D", "[",
+    RowBox[{
+     RowBox[{"Evaluate", "[",
+      RowBox[{"%%", "/.",
+       RowBox[{"(",
+        RowBox[{"p", "\[Rule]",
+         RowBox[{"2", "/", "3"}]}], ")"}]}], "]"}], ",",
+     RowBox[{"{",
+      RowBox[{"s", ",", "1", ",", "10"}], "}"}], ",",
+     RowBox[{"{",
+      RowBox[{"t", ",", "1", ",", "10"}], "}"}], ",",
+     RowBox[{"Exclusions", "\[Rule]", "None"}]}], "]"}], ",",
+   RowBox[{"ListPointPlot3D", "[", "%", "]"}]}], "]"}]}], "Input"]
+}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Max", "[",
+   RowBox[{
+    RowBox[{
+     RowBox[{"Max", "[",
+      RowBox[{
+       RowBox[{"(",
+        RowBox[{"w", "+", "x"}], ")"}], ",", "0"}], "]"}], "+", "x2"}], ",",
+    "0"}], "]"}], "//", "FullSimplify"}]], "Input"]
+}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Reduce", "[",
+  RowBox[{
+   RowBox[{
+    RowBox[{"Max", "[",
+     RowBox[{
+      RowBox[{
+       RowBox[{"Max", "[",
+        RowBox[{
+         RowBox[{"(",
+          RowBox[{"w", "+", "x"}], ")"}], ",", "0"}], "]"}], "+", "x2"}], ",",
+       "0"}], "]"}], "\[Equal]", "0"}], ",", "x2"}], "]"}]], "Input"]
+}]],
+
+Cell[BoxData[
+ RowBox[{"DensityPlot3D", "[",
+  RowBox[{
+   RowBox[{"{",
+    RowBox[{"Max", "[",
+     RowBox[{
+      RowBox[{
+       RowBox[{"Max", "[",
+        RowBox[{"w", ",", "0"}], "]"}], "+", "x"}], ",", "0"}], "]"}], "}"}],
+   ",",
+   RowBox[{"{",
+    RowBox[{"w", ",", "0", ",", "1"}], "}"}], ",",
+   RowBox[{"{",
+    RowBox[{"x", ",",
+     RowBox[{"-", "1"}], ",", "1"}], "}"}], ",",
+   RowBox[{"AxesLabel", "\[Rule]", "Automatic"}], ",",
+   RowBox[{"PlotLegends", "\[Rule]", "Automatic"}], ",",
+   RowBox[{"OpacityFunction", "\[Rule]",
+    RowBox[{"(",
+     RowBox[{
+      RowBox[{
+       RowBox[{"Max", "[",
+        RowBox[{"#", ",", "0"}], "]"}], "/", "4"}], "&"}], ")"}]}], ",",
+   RowBox[{"OpacityFunctionScaling", "\[Rule]", "False"}]}], "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Show", "[",
+  RowBox[{
+   RowBox[{"DensityPlot3D", "[",
+    RowBox[{
+     RowBox[{"{",
+      RowBox[{"Max", "[",
+       RowBox[{
+        RowBox[{
+         RowBox[{"Max", "[",
+          RowBox[{
+           RowBox[{"(",
+            RowBox[{"w", "+", "x"}], ")"}], ",", "0"}], "]"}], "+", "x2"}],
+        ",", "0"}], "]"}], "}"}], ",",
+     RowBox[{"{",
+      RowBox[{"w", ",", "0", ",", "1"}], "}"}], ",",
+     RowBox[{"{",
+      RowBox[{"x", ",",
+       RowBox[{"-", "1"}], ",", "0"}], "}"}], ",",
+     RowBox[{"{",
+      RowBox[{"x2", ",",
+       RowBox[{"-", ".5"}], ",", ".5"}], "}"}], ",",
+     RowBox[{"AxesLabel", "\[Rule]",
+      RowBox[{"{",
+       RowBox[{"\"\<w\>\"", ",", "\"\<x\>\"", ",", "\"\<x2\>\""}], "}"}]}],
+     ",",
+     RowBox[{"PlotLegends", "\[Rule]", "Automatic"}], ",",
+     RowBox[{"OpacityFunction", "\[Rule]",
+      RowBox[{"(",
+       RowBox[{
+        RowBox[{
+         RowBox[{"Max", "[",
+          RowBox[{"#", ",", "0"}], "]"}], "/", "4"}], "&"}], ")"}]}], ",",
+     RowBox[{"OpacityFunctionScaling", "\[Rule]", "False"}]}], "]"}], ",",
+   "\[IndentingNewLine]",
+   RowBox[{"ContourPlot3D", "[",
+    RowBox[{
+     RowBox[{"{",
+      RowBox[{
+       RowBox[{
+        RowBox[{"w", "+", "x", "+", "x2"}], "\[Equal]", "0"}], ",",
+       RowBox[{
+        RowBox[{"w", "+", "x"}], "\[Equal]", "0"}], ",",
+       RowBox[{"x2", "\[Equal]", "0"}]}], "}"}], ",",
+     RowBox[{"{",
+      RowBox[{"w", ",", "0", ",", "1"}], "}"}], ",",
+     RowBox[{"{",
+      RowBox[{"x", ",",
+       RowBox[{"-", "1"}], ",", "0"}], "}"}], ",",
+     RowBox[{"{",
+      RowBox[{"x2", ",",
+       RowBox[{"-", ".5"}], ",", "5"}], "}"}], ",",
+     RowBox[{"ContourStyle", "\[Rule]",
+      RowBox[{"Opacity", "[", "0.1", "]"}]}], ",",
+     RowBox[{"RegionBoundaryStyle", "\[Rule]", "None"}], ",",
+     RowBox[{"RegionFunction", "\[Rule]",
+      RowBox[{"Function", "[",
+       RowBox[{
+        RowBox[{"{",
+         RowBox[{"w", ",", "x", ",", "x2"}], "}"}], ",",
+        RowBox[{
+         RowBox[{"(",
+          RowBox[{
+           RowBox[{"x2", "\[GreaterEqual]", "0"}], "&&",
+           RowBox[{
+            RowBox[{"Abs", "[",
+             RowBox[{"w", "+", "x"}], "]"}], "<", "1*^-2"}]}], ")"}], "||",
+         RowBox[{"(",
+          RowBox[{
+           RowBox[{"x2", "<",
+            RowBox[{"-", "1*^-9"}]}], "&&",
+           RowBox[{
+            RowBox[{"w", "+", "x"}], ">", "1*^-2"}]}], ")"}], "||",
+         RowBox[{"(",
+          RowBox[{
+           RowBox[{
+            RowBox[{"w", "+", "x"}], "\[LessEqual]", "0"}], "&&",
+           RowBox[{
+            RowBox[{"Abs", "[", "x2", "]"}], "<", "1*^-2"}]}], ")"}]}]}],
+       "]"}]}]}], "]"}], ",", "\[IndentingNewLine]",
+   RowBox[{"ParametricPlot3D", "[",
+    RowBox[{
+     RowBox[{"{",
+      RowBox[{"w", ",",
+       RowBox[{"-", "w"}], ",", "0"}], "}"}], ",",
+     RowBox[{"{",
+      RowBox[{"w", ",", "0", ",", "1"}], "}"}], ",",
+     RowBox[{"PlotStyle", "\[Rule]", "Black"}]}], "]"}]}], "]"}]], "Input"]
+}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SetDirectory", "[",
+  RowBox[{"NotebookDirectory", "[", "]"}], "]"}]], "Input"]
+}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[",
+  RowBox[{"\"\<Assets\\\\two-step-iteration.png\>\"", ",", "%26"}],
+  "]"}]], "Input"]
+}]]
+}]],
+
+Cell[CellGroupData[{
+
+Cell["Native Expressions", "Subsection"],
+
+Cell[CellGroupData[{
+
+Cell["Native Example", "Subsubsection"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[ScriptCapitalH]", "=",
+   RowBox[{"DiscreteMarkovProcess", "[",
+    RowBox[{
+     FormBox[
+      RowBox[{"{",
+       RowBox[{"0.5", ",", "0.5"}], "}"}],
+      TraditionalForm], ",",
+     FormBox[
+      RowBox[{"(", "\[NoBreak]", GridBox[{
+         {"0.7", "0.3"},
+         {"0.25", "0.75"}
+        },
+        GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+        GridBoxSpacings->{"Columns" -> {
+            Offset[0.27999999999999997`], {
+             Offset[0.7]},
+            Offset[0.27999999999999997`]}, "Rows" -> {
+            Offset[0.2], {
+             Offset[0.4]},
+            Offset[0.2]}}], "\[NoBreak]", ")"}],
+      TraditionalForm]}], "]"}]}], ";"}], "\[IndentingNewLine]",
+ RowBox[{
+  RowBox[{"\[ScriptCapitalH]", "//=",
+   RowBox[{
+    RowBox[{"ReplacePart", "[",
+     RowBox[{"#", ",",
+      RowBox[{"1", "\[Rule]",
+       RowBox[{"(",
+        RowBox[{
+         RowBox[{
+          RowBox[{"(",
+           RowBox[{"#", "/",
+            RowBox[{"Norm", "[",
+             RowBox[{"#", ",", "1"}], "]"}]}], ")"}], "&"}], "@",
+         RowBox[{"Array", "[",
+          RowBox[{
+           RowBox[{"PDF", "[",
+            RowBox[{"StationaryDistribution", "[", "#", "]"}], "]"}], ",",
+           RowBox[{"Length", "@",
+            RowBox[{"MarkovProcessProperties", "[",
+             RowBox[{"#", ",", "\"\<TransitionMatrix\>\""}], "]"}]}]}],
+          "]"}]}], ")"}]}]}], "]"}], "&"}]}], ";"}], "\[IndentingNewLine]",
+ RowBox[{
+  RowBox[{"\[ScriptCapitalP]", "=",
+   RowBox[{"HiddenMarkovProcess", "[",
+    RowBox[{"\[ScriptCapitalH]", ",",
+     RowBox[{"(", GridBox[{
+        {"0.8", "0.2"},
+        {"0.6", "0.4"}
+       }], ")"}]}], "]"}]}], ";"}]}], "Input"]
+}]],
+
+Cell[CellGroupData[{
+
+Cell["Pancy Example", "Subsubsection"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[ScriptCapitalD]0", "=",
+   RowBox[{"(", GridBox[{
+      {
+       RowBox[{"-", "2"}], "0"},
+      {"0",
+       RowBox[{
+        RowBox[{"-", "1"}], "/", "2"}]}
+     }], ")"}]}], ";",
+  RowBox[{"\[ScriptCapitalD]1", "=",
+   RowBox[{"(", GridBox[{
+      {
+       RowBox[{"3", "/", "5"}],
+       RowBox[{"7", "/", "5"}]},
+      {
+       RowBox[{"7", "/", "20"}],
+       RowBox[{"3", "/", "20"}]}
+     }], ")"}]}], ";",
+  RowBox[{"dt", "=", "1"}], ";"}], "\[IndentingNewLine]",
+ RowBox[{
+  RowBox[{"transitM", "=",
+   RowBox[{"N", "@",
+    RowBox[{"MatrixExp", "[",
+     RowBox[{"dt", " ",
+      RowBox[{"(",
+       RowBox[{"\[ScriptCapitalD]0", "+", "\[ScriptCapitalD]1"}], ")"}]}],
+     "]"}]}]}], ";"}], "\[IndentingNewLine]",
+ RowBox[{
+  RowBox[{"emitM", "=",
+   RowBox[{"N", "@",
+    RowBox[{"MatrixExp", "[",
+     RowBox[{"dt", " ", "\[ScriptCapitalD]1"}], "]"}]}]}],
+  ";"}], "\[IndentingNewLine]",
+ RowBox[{
+  RowBox[{"\[ScriptCapitalH]", "=",
+   RowBox[{"DiscreteMarkovProcess", "[",
+    RowBox[{
+     FormBox[
+      RowBox[{"{",
+       RowBox[{"0.5", ",", "0.5"}], "}"}],
+      TraditionalForm], ",", "transitM"}], "]"}]}],
+  ";"}], "\[IndentingNewLine]",
+ RowBox[{
+  RowBox[{"\[ScriptCapitalH]", "//=",
+   RowBox[{
+    RowBox[{"ReplacePart", "[",
+     RowBox[{"#", ",",
+      RowBox[{"1", "\[Rule]",
+       RowBox[{"(",
+        RowBox[{
+         RowBox[{
+          RowBox[{"(",
+           RowBox[{"#", "/",
+            RowBox[{"Norm", "[",
+             RowBox[{"#", ",", "1"}], "]"}]}], ")"}], "&"}], "@",
+         RowBox[{"Array", "[",
+          RowBox[{
+           RowBox[{"PDF", "[",
+            RowBox[{"StationaryDistribution", "[", "#", "]"}], "]"}], ",",
+           RowBox[{"Length", "@",
+            RowBox[{"MarkovProcessProperties", "[",
+             RowBox[{"#", ",", "\"\<TransitionMatrix\>\""}], "]"}]}]}],
+          "]"}]}], ")"}]}]}], "]"}], "&"}]}], ";"}], "\[IndentingNewLine]",
+ RowBox[{
+  RowBox[{"\[ScriptCapitalP]", "=",
+   RowBox[{"HiddenMarkovProcess", "[",
+    RowBox[{"\[ScriptCapitalH]", ",",
+     RowBox[{
+      RowBox[{
+       RowBox[{"(",
+        RowBox[{"#", "/",
+         RowBox[{"Total", "/@", "#"}]}], ")"}], "&"}], "@",
+      "\[ScriptCapitalD]1"}]}], "]"}]}], ";"}]}], "Input"]
+}]],
+
+Cell[CellGroupData[{
+
+Cell["Visualize Correlation", "Subsubsection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"data", "=",
+  RowBox[{"RandomFunction", "[",
+   RowBox[{"\[ScriptCapitalP]", ",",
+    RowBox[{"{",
+     RowBox[{"1", ",", "1000"}], "}"}], ",", "10"}], "]"}]}]], "Input"]
+}]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"TemporalData", "[",
+  RowBox[{
+   RowBox[{
+    RowBox[{"Differences", "/@",
+     RowBox[{
+      RowBox[{"TemporalData", "[",
+       RowBox[{
+        RowBox[{
+         RowBox[{"Append", "[",
+          RowBox[{
+           RowBox[{"DeleteDuplicatesBy", "[",
+            RowBox[{"#", ",", "Last"}], "]"}], ",",
+           RowBox[{"Last", "[", "#", "]"}]}], "]"}], "&"}], "/@",
+        RowBox[{"(",
+         RowBox[{
+          RowBox[{"(",
+           RowBox[{"Accumulate", "@",
+            RowBox[{"(",
+             RowBox[{"data", "-", "1"}], ")"}]}], ")"}], "[", "\"\<Paths\>\"",
+           "]"}], ")"}]}], "]"}], "[", "\"\<TimeList\>\"", "]"}]}], "-",
+    "1"}], ",", "Automatic"}], "]"}], "\[IndentingNewLine]",
+ RowBox[{"GraphicsRow", "[",
+  RowBox[{"{", "\[IndentingNewLine]",
+   RowBox[{
+    RowBox[{"ListPlot", "[",
+     RowBox[{"%", ",",
+      RowBox[{"Filling", "\[Rule]", "Axis"}]}], "]"}], ",",
+    "\[IndentingNewLine]",
+    RowBox[{"ListPlot", "[",
+     RowBox[{
+      RowBox[{"CorrelationFunction", "[",
+       RowBox[{"%", ",",
+        RowBox[{"{", "5", "}"}]}], "]"}], ",",
+      RowBox[{"Filling", "\[Rule]", "Axis"}], ",",
+      RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]}],
+   "\[IndentingNewLine]", "}"}], "]"}]}], "Input"]
+}]],
+
+Cell[BoxData[
+ RowBox[{"QueueingProcess", "[", "]"}]], "Input"]
+}]]
 }]]
 }]],
 
